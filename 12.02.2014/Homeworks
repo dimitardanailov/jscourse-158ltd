@@ -1,0 +1,13 @@
+1. abba, caac, gosho  - Check word is palindrome.
+abba - true
+caac - true
+gosho - false
+
+2. Quick Sort
+Example : [1, 5, 2, 10, 3, 7];
+Output: [1, 2, 3, 5, 7, 10];
+
+3. Prime numbers: 1 - 1 000 000
+
+4. Fibonacci 
+Exampe: http://en.wikipedia.org/wiki/Fibonacci_number

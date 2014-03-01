@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="js/libs/jquery/jquery.js"
+        type="text/javascript"></script>
+        <script>
+            (function() {
+                var echo = function(val) {
+                    console.log(val);
+                };
+                var go = 'GO';
+                
+                echo('TEST'); 
+                var subFunc2;
+                
+                var subFunc = function() {
+                    var me = 'My Name';
+                    echo(me);
+                    
+                    subFunc2 = function() {
+                        var my_name_is = ' Is Dimitar';
+                        echo(me + my_name_is);
+                    };
+                };
+                
+                subFunc();
+                
+                subFunc2();
+                window.addEventListener('load',function() {
+                    document.getElementById('button').
+                        addEventListener('click', function() {
+                            alert('TEST');
+                    });
+                });
+                
+            })();
+           var fn =  function() {
+                alert('fn called');
+           };
+           fn4 = function() {};
+           
+           
+           function fn2() {
+               alert('fn2 called');
+           }
+           
+           var fn3 = fn2;
+        </script>
+        
+        <script>
+            
+            (function() {
+                var myGlob = {};
+                
+                myGlob.function1 = function() {
+                   console.log('1'); 
+                };
+                
+                myGlob.function2 = function() {
+                   console.log('2'); 
+                };
+                
+                myGlob.function3 = function() {
+                   console.log('3'); 
+                };
+                
+                window.myGlob = myGlob;
+                
+            })();
+            
+            (function() {
+                myGlob.function4 = function() {
+                    console.log('4');
+                };
+            })();
+        </script>
+    </head>
+    <body>
+        <button id="button">Alert(Test)</button>
+    </body>
+</html>

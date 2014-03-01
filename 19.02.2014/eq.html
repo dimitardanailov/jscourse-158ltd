@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="jquery-2.1.0.js"></script>
+        
+        <style>
+            .nice {
+                background-color: #000;
+                color: #fff;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div>        Line 1      </div>
+        <div>Line 2</div>
+        <div>Line 3</div>
+        <div>Line 4</div>
+        <div>Line 5</div>
+        
+        <p>Line 1</p>
+        <p>Line 9</p>
+        <p>Line 3</p>
+        <p>Line 7</p>
+        <p>Line 5</p>
+
+        <script>
+            $('div').each(function(iterator) {
+                var p = $('p').eq(iterator);
+                var divText = $.trim($(this).text());
+                var pText = $.trim(p.text());
+                
+                if (divText === pText) {
+                    p.addClass('nice');
+                }
+            });
+        </script>
+    </body>
+</html>

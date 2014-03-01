@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Part 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="jquery-2.1.0.js"></script>
+        
+        <style>
+            .default-span {
+                font-size: 14px;
+                display: block;
+            }
+            
+            .background-color-red {
+                background-color: red;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div>
+            <div class="some-text">Some Text</div>
+        </div>
+        
+        <div class="js-target-element">
+            
+        </div>
+        
+        <button class="js-add-more">Add More</button>
+        <script>
+            $('.some-text').addClass('background-color-red');
+            $('.some-text').before('<p>Before</p>');
+            $('.some-text').after('<p>After</p>');
+            
+            var targetElement = $('.js-target-element');
+            $('.js-add-more').click(function() {
+                var someText = $('.some-text').first().clone();
+                
+                targetElement.append(someText);
+            });
+           
+        </script>
+        
+    </body>
+</html>

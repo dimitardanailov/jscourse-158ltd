@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu - example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="jquery-2.1.0.js"></script>
+        
+        <style>
+            body 
+            {
+                padding: 0;
+                margin: 0;
+            }
+            
+            ul
+            {
+                list-style: none;
+                
+                padding: 0;
+                margin: 0;
+            }
+            
+            .main-group
+            {
+                background-color: #000;
+                color: #fff;
+                border-bottom: 1px solid #fff;
+                
+                cursor: pointer;
+            }
+            
+            .sub-group 
+            {
+                display: none;
+            }
+            
+        </style>
+        
+    </head>
+    <body>
+        <nav>
+            <ul class="">
+                <li class="main-group">
+                    Category 1
+                    
+                    <ul class="sub-group">
+                        <li>
+                            Sub Category 1
+                        </li>
+                        
+                        <li>
+                            Sub Category 1
+                        </li>
+                    </ul>
+                    
+                </li>
+                <li class="main-group">
+                    Category 2
+                    
+                    <ul class="sub-group">
+                        <li>
+                            Sub Category 1
+                        </li>
+                        
+                        <li>
+                            Sub Category 1
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-group">
+                    Category 3
+                    
+                    <ul class="sub-group">
+                        <li>
+                            Sub Category 1
+                        </li>
+                        
+                        <li>
+                            Sub Category 1
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-group">
+                    Category 4
+                    
+                    <ul class="sub-group">
+                        <li>
+                            Sub Category 1
+                        </li>
+                        
+                        <li>
+                            Sub Category 1
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-group">
+                    Category 5
+                    
+                    <ul class="sub-group">
+                        <li>
+                            Sub Category 1
+                        </li>
+                        
+                        <li>
+                            Sub Category 1
+                        </li>
+                    </ul>
+                </li>
+                                
+                <li class="main-group">
+                    Category 6
+                    
+                    <ul class="sub-group">
+                        <li>
+                            Sub Category 1
+                        </li>
+                        
+                        <li>
+                            Sub Category 1
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <script>
+            
+            $('.main-group').click(function() {
+                
+                var subgroup =  $(this).children('.sub-group');
+
+                if (subgroup.is(':hidden')) {
+                    subgroup.fadeIn();
+                } else {
+                    subgroup.fadeOut();
+                }
+            });
+            
+        </script>
+        
+    </body>
+</html>

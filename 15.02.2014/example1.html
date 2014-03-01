@@ -1,0 +1,60 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <title>Javascript - Task 1</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style type="text/css">
+            
+        </style>
+        <script type="text/javascript">
+            
+            function Human(name, gender, address, telephoneNumber, years)
+            {
+                this.name = name;
+                this.gender = gender;
+                this.address = address;
+                this.telephoneNumber = telephoneNumber;
+                this.years = years;
+                
+                this.sayHello = function()
+                {
+                    document.write('Hi I am ' + this.name + '<br/>');
+                }
+                
+                this.printGender = function()
+                {
+                    document.write('Gender : ' + this.gender + '<br/>');
+                }
+                
+                this.printAddress = function()
+                {
+                    document.write('Address : ' + this.address + '<br/>');
+                }
+                
+                this.printTelephoneNumber = function()
+                {
+                    document.write('Telephone : ' + this.telephoneNumber + '<br/>');
+                }
+                
+                this.printYears = function()
+                {
+                    document.write('I am ' + this.years + ' years old!' + '<br/>');
+                }
+            }
+            
+            var Dimitar = new Human('Dimitar Danailov', 'male', 'Varna','888-888-888',23);
+            Dimitar.sayHello();
+            Dimitar.printGender();
+            Dimitar.printAddress();
+            Dimitar.printTelephoneNumber();
+            Dimitar.printYears();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

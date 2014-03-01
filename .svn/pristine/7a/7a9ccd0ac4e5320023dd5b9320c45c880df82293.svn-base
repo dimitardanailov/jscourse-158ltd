@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Part 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="jquery-2.1.0.js"></script>
+        
+        <style>
+            .default-span {
+                font-size: 14px;
+                display: block;
+            }
+            
+            .background-color-red {
+                background-color: red;
+            }
+        </style>
+        
+    </head>
+    <body>
+        
+        <div class="test-class">Hello World</div>
+        
+        
+        
+        <script>
+            $('.test-class').text('Hello World from JavaScript');
+            
+            var span = $('<span class="default-span"/>');
+            span.text('Second Line');
+            
+            $('.test-class').append(span);
+            $('.test-class').html(span);
+        </script>
+        
+    </body>
+</html>

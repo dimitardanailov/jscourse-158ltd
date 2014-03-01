@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        
+        <script>
+            //Int
+            var i = 0;
+            document.write(i);
+            document.write('<hr/>');
+            
+            //Float
+            var float = 5.2;
+            document.write(float);
+            document.write('<hr/>');
+            
+            //String
+            var myFirstString = 'Hello World';
+            document.write(myFirstString);
+            document.write('<hr/>');
+            
+            //Date
+            var date = new Date();
+            console.log(date.getTime());
+            
+            //Functions
+            helloWorld();
+            
+            function helloWorld() {
+                document.write('Function: Hello World');
+                document.write('<hr/>');
+            }
+            
+            greetings('Murad');
+            function greetings(name) {
+                document.write('Hello, ' + name);
+                document.write('<hr/>');
+            }
+            
+            //While
+            var breakMyWhileLoop = false;
+            while(!breakMyWhileLoop) {
+                document.write('While' + name);
+                document.write('<hr/>');
+                
+                breakMyWhileLoop = true;
+                break;
+            }
+            
+            //For
+            var eggs = 10;
+            for (var i = 1; i <= eggs; i++) {
+                document.write('Egg Number: ' + i);
+                document.write('<hr/>');
+            }
+            //Arrays
+            var cars = [
+                'BMW', 'AUDI', 'HONDA', 'MAZDA'
+            ];
+            
+            console.log('Foreach');
+            //Foreach
+            for (var iterator in cars) {
+                var car = cars[iterator];
+                console.log(car);
+                console.log('----');
+            }
+            
+            //Example reverse
+            var fruits = [
+                'Banana', 'Orange', 'Apple', 'Mango'
+            ];
+            fruits.reverse();
+            console.log(fruits);
+            console.log(fruits[0]);
+            
+            //Objects
+            var human = {
+                'name': 'Antoan',
+                'lastName': 'Popov',
+                'company': '158ltd.com',
+                'position': 'Jr.Developer',
+                'skills': [
+                    'PHP',
+                    'JavaScript',
+                    'HTML',
+                    'CSS'
+                ],
+                'special@key': 'specialKey'
+            };
+            
+            console.log(human.name);
+            console.log(human['name']);
+            console.log(human['special@key']);
+           
+            //Reg Exp
+            var pattern = '\\d{1,2}';
+            var regExp = new RegExp(pattern, 'i');
+            console.log(regExp.test(10));
+            
+            //Homeworks:
+            /*
+             * 1. abba, caac, gosho  - Check word is palindrome.
+             * abba - true
+             * caac - true
+             * gosho - false
+             * 2. Quick Sort
+             * Example : [1, 5, 2, 10, 3, 7];
+             * Output: [1, 2, 3, 5, 7, 10];
+             * 3. Prime numbers: 1 - 1 000 000
+             * 4. Fibonacci 
+             * Exampe: http://en.wikipedia.org/wiki/Fibonacci_number
+             * 
+             */
+        </script>    
+    </body>
+</html>

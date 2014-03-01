@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Plugins</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <link rel="stylesheet" type="text/css" media="screen" 
+              href="style/style.css" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" 
+              href="style/pictureTree.css" />
+        
+        <script src="jquery-2.1.0.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/pictureTree.js"></script>
+    </head>
+    <body>
+        
+        <section id="container"></section>
+        
+        <script>
+            var container = $('#container');
+            var data = FOLDER_STRUCTURE;
+            
+            container.pictureTree(data);
+        </script>
+        
+    </body>
+</html>

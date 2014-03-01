@@ -1,0 +1,54 @@
+
+$.fn.extend({
+    
+    /** Initializer ***/
+    pictureTree: function(data) {
+        $(this).getFolders(data);
+    },
+    
+    /*** Load Folders ***/
+    getFolders: function(data) {
+        if (data.hasOwnProperty("items")) {
+            for (var iterator in data.items.folders) {
+                var folder = data.items.folders[iterator];
+                
+                $(this).buildFolder(folder);
+            }
+        }
+    },
+    
+    buildFolder: function(folder) {
+        
+        var folderContainer = $('<section/>');
+        folderContainer.addClass('__pictureTree-folder-wrapper');
+
+        var imageCover = $('<img/>');
+        imageCover.attr('src', folder.path + '/' + folder.cover);
+        
+        var coverWidth = folder.width;
+        var coverHeight = folder.height;
+        
+        folderContainer.width(coverWidth);
+        folderContainer.height(coverHeight);
+        
+        folderContainer.append(imageCover);
+        
+        var folderOverlay = $(this).buildFolderOverlay(folder);
+        folderContainer.append(folderOverlay);
+        
+        $(this).append(folderContainer);
+    }, 
+    
+    buildFolderOverlay: function(folder) {
+        var folderOverlay = $('<span/>');
+        var coverWidth = folder.width;
+        var coverHeight = folder.height;
+        
+        folderOverlay.addClass('__pictureTree-folder-overlay-wrapper');
+        folderOverlay.width(coverWidth);
+        folderOverlay.height(coverHeight);
+        
+        return folderOverlay;
+    }
+});
+

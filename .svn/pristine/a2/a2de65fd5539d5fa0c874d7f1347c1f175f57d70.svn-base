@@ -1,0 +1,37 @@
+var Company = function() {  
+  /** Constuctor **/
+  this.name = 'default company';
+  this.staffMembers = [];
+  this.office = {};
+  this.bankInfo = {};
+  
+  /** Name **/
+  this.getName = function() {
+      return this.name;
+  };
+    
+  this.setName = function(name) {
+      this.name = name;
+  };
+  
+  /** StaffMembers **/
+  this.getStaffMembers = function() {
+      
+  };
+  
+  this.setStaffMember = function(staffMember) {
+      var type = staffMember instanceof StaffMember();
+      console.log(type);
+      
+      try {
+        if (typeof staffMember != typeof(StaffMember))
+        
+        var length = this.staffMembers.length;
+        this.staffMembers[length] = staffMember;
+        
+      } catch (e) {
+          console.log(e);
+      }
+  };
+};
+

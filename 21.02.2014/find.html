@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Find</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="jquery-2.1.0.js"></script>
+    </head>
+    <body>
+        
+        <div class="group">
+            Group
+            
+            <div class="sub-group">
+                Sub group
+                <div>
+                
+                    <div class="sub-sub-group">
+                        Sub Sub group
+                    </div>
+                    
+                    <div class="sub-group">
+                        Sub group
+                        
+                        <div class="sub-group">
+                            
+                            <div class="sub-group">
+                                <div class="sub-sub-group">
+                                    Sub Sub group
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <script>
+            
+            $('.group').find('.sub-sub-group').css(
+            {
+                'background-color': 'black',
+                'color': 'white'
+            });
+            
+        </script>
+        
+    </body>
+</html>

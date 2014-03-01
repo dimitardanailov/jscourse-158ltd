@@ -1,0 +1,23 @@
+.__pictureTree-folder-wrapper {
+    position: relative;
+    
+    top: 0;
+    left: 0;
+    
+    display: block;
+    
+    overflow: hidden;
+}
+
+.__pictureTree-folder-overlay-wrapper {
+    position: absolute;
+    z-index: 9000;
+    top: 0;
+    left: 0;
+    
+    display: block;
+    
+    color: #fff;
+    
+    background-color: rgba(0, 0, 0, .6);
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>clock</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="jquery-2.1.0.js"></script>
+        
+    </head>
+    <body>
+        <div id="clock">
+            
+        </div>
+        
+        <script>
+            (function() {
+                var date = new Date();
+                var element = $('#clock');
+                drawClock(element, date);
+                
+                setInterval(function() {
+                    var newDate = date.getTime() + 1000;
+                    date = new Date(newDate);   
+                    
+                    drawClock(element, date);
+                }, 1000);
+                
+                function drawClock(element, date) {
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    var hour = date.getHours();
+                    var minutes = date.getMinutes();
+                    var seconds = date.getSeconds();
+                    
+                    element.text(
+                      year + '-' + month + '-' + day + ' ' + 
+                      hour + ':' + minutes + ':' + seconds);
+                }
+            })();
+            
+        </script>
+    </body>
+</html>

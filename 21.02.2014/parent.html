@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parent</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <script src="jquery-2.1.0.js"></script>
+        
+    </head>
+    <body>
+        <div class="group">
+            Group 1
+            <div class="sub-group">
+                Sub Group 1
+            </div>
+        </div>
+        
+        <div class="group">
+            Group 2
+            <div class="sub-group has-active">
+                Sub Group 2
+            </div>
+        </div>
+        
+        <script>
+            $('.sub-group').parent()
+                           .children('.has-active')
+                           .css(
+                           {
+                                'background-color': 'black',
+                                'color': 'white'
+                           });
+        </script>
+    </body>
+</html>

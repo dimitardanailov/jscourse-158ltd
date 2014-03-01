@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script 
+            src="js/libs/jquery/jquery.js" type="text/javascript">
+            
+        </script>
+        <script>
+            $(function() {
+                var div1ById = $('#div1');
+                var div1ByClass = $('.div1');
+                console.info(div1ById, div1ByClass);
+                
+                ///
+                $('#div1').css('width', '100px');
+                
+                $('#div1').css({
+                    'height': 200,
+                    'background': 'red'
+                });
+                
+                //alert(div1ById.is($('#div1')));
+                
+                //
+                //$('div#id');
+                //$('div.class');
+                console.info($('div'));
+                var myJQObj = $('div');
+                
+                myJQObj.css({
+                    'width': '400px',
+                    'height': '200px',
+                    'background-color': 'blue',
+                    'color': 'white'
+                });
+                
+                // method chainig
+                
+                $('div.div1').css('position','absolute').
+                        width(150).
+                        height(150).
+                        css({
+                            'left': 100,
+                            'top': 50,
+                            'background': 'red'
+                        });
+                        
+                // Events
+                // on, one, off, trigger, triggerHandler
+                myJQObj = $('div.div1');
+                
+                var isClickable = true;
+                
+                myJQObj.on('click', function() {
+                    if(isClickable) {
+                        alert('DIV1 was clicked');
+                    }
+                });
+                
+                $('#div1').on('click', function() {
+                    isClickable = false;
+                });
+                
+                var main = $('.main').css({
+                    'background': 'green',
+                    'position': 'absolute',
+                    'top': 0,
+                    'left': 0,
+                    'width': 200,
+                    'height': 200
+                });
+                var child = $('.child').css({
+                    'background': 'gray',
+                    'position': 'absolute',
+                    'top': 50,
+                    'left': 50,
+                    'width': 100,
+                    'height': 100
+                });
+                
+                main.on('click', function(event) {
+                    
+                    alert('main clicked');
+                });
+                
+                child.on('click', function(event) {
+                    console.info(event);
+                    event.stopPropagation();
+                    alert('child clickd');
+                });
+                
+                $('body').on('click', function() {
+                    alert('body clickd');
+                });
+                
+                $('body').off();
+                
+                /*function bodyMouseDown() {
+                    alert('Mouse Down');
+                }
+                $('body').on('mousedown', function() {
+                    alert('Mouse Down 1');
+                });
+                $('body').on('mousedown', bodyMouseDown);
+                
+                $('body').off('mousedown', bodyMouseDown);
+                */
+               
+                /*$('body').one('click', function() {
+                    alert('Clicked once');
+                });*/
+                
+                $('body').on('click', function(e) {
+                    $(this).off(e);
+                    $('body').trigger('pesho');
+                });
+                
+                $('body').on('pesho', function() {
+                    alert('Pesho e gotov');
+                });
+                
+                //.triggerHandler()
+                
+                $('body').triggerHandler('click').
+                        find('*').each(function(){
+                    $(this).triggerHandler('click');
+                });
+                
+            });
+        </script>
+    </head>
+    <body>
+        <div id="div1">div1</div>
+        <div class="div1">div1</div>
+        
+        <div class="main">
+            <div class="child"></div>
+        </div>
+        
+    </body>
+</html>

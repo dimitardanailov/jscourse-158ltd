@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prototype</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        
+    </head>
+    <body>
+        
+        <script src="prototype/Company.js"></script>
+        <script src="prototype/StaffMember.js"></script>
+        
+        <script>
+            (function() {
+                var company = new Company();
+                company.setName('158ltd');
+                
+                var staffMemberDeveloper = new StaffMember();
+                staffMemberDeveloper.setName('Person 1');
+                staffMemberDeveloper.setLastName('Person 1 Family');
+                staffMemberDeveloper.setPosition('developer');
+                
+                var staffMemberDesigner = new StaffMember();
+                staffMemberDesigner.setName('Person 2');
+                staffMemberDesigner.setLastName('Person 2 Family');
+                staffMemberDesigner.setPosition('designer');
+                
+                company.setStaffMember(staffMemberDeveloper);
+                company.setStaffMember(staffMemberDesigner);
+                
+            })();
+        </script>
+        
+    </body>
+</html>

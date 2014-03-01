@@ -1,0 +1,40 @@
+.__pictureTree-folder-wrapper,
+.__pictureTree-file-wrapper {
+    position: relative;
+    
+    top: 0;
+    left: 0;
+    
+    display: block;
+    
+    overflow: hidden;
+}
+
+.__pictureTree-overlay-wrapper {
+    position: absolute;
+    z-index: 9000;
+    top: 0;
+    left: 0;
+    
+    display: block;
+    
+    color: #fff;
+    
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.__pictureTree-name-picture {
+    position: absolute;
+    z-index: 9001;
+    top: 0;
+    left: 0;
+    
+    display: block;
+    
+    font-size: 16px;
+    font-weight: bold;
+    
+    color: #fff;
+    
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+}

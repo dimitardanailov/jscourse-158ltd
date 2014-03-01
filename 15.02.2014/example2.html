@@ -1,0 +1,208 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <title>Javascript - Task 2</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style type="text/css">
+            
+        </style>
+        <script type="text/javascript">
+            function Human()
+            {
+                this.name = arguments[0];
+                this.gender = arguments[1];
+                this.address = arguments[2];
+                this.telephoneNumber = arguments[3];
+                this.years = arguments[4];;
+                
+                this.sayHello = function()
+                {
+                    document.write('Hi I am ' + this.name + '<br/>');
+                }
+                
+                this.printGender = function()
+                {
+                    document.write('Gender : ' + this.gender + '<br/>');
+                }
+                
+                this.printAddress = function()
+                {
+                    document.write('Address : ' + this.address + '<br/>');
+                }
+                
+                this.printTelephoneNumber = function()
+                {
+                    document.write('Telephone : ' + this.telephoneNumber + '<br/>');
+                }
+                
+                this.printYears = function()
+                {
+                    document.write('I am ' + this.years + ' years old!' + '<br/>');
+                }
+                
+                this.printInfo = function()
+                {
+                    this.sayHello();
+                    this.printGender();
+                    this.printAddress();
+                    this.printTelephoneNumber();
+                    this.printYears();
+                }
+            }
+            
+            Student.prototype = new Human();
+            Parent.prototype = new Human();
+            
+            function Student(name, gender, address, telephoneNumber, years, school, grade, marks)
+            {
+                this.name = name;
+                this.gender = gender;
+                this.address = address;
+                this.telephoneNumber = telephoneNumber;
+                this.years = years;
+                
+                this.school = school;
+                this.grade = grade;
+                this.marks = marks;
+                
+                this.printSchool = function()
+                {
+                    document.write('School : ' + this.school + '<br/>');
+                }
+                
+                this.printGrade = function()
+                {
+                    document.write('Grade : ' + this.grade + '<br/>');
+                }
+                
+                this.printMarks = function()
+                {
+                    var sizeMarks = this.marks.length;
+                    
+                    if(sizeMarks > 0)
+                    {
+                        var sumMarks = 0;
+                        
+                        document.write('Marks : ');   
+                        
+                        for(var i=0; i< sizeMarks; i++)
+                        {
+                            var mark = parseFloat(this.marks[i]);
+                            sumMarks = sumMarks + mark;
+                            document.write(mark+', ');
+                        }
+                        
+                        if(sumMarks > 0)
+                        {
+                            
+                            var averageMark = sumMarks/sizeMarks;
+                            document.write('Average : '+averageMark+'<br/>');   
+                        }
+                    }        
+                }
+                
+                this.printInfoStudent = function()
+                {
+                    document.write('Student : <br/>');
+                    this.printInfo();
+                    this.printSchool();
+                    this.printGrade();
+                    this.printMarks();
+                }
+                
+                this.addMark = function(mark)
+                {
+                    this.marks.push(mark);
+                }
+                
+                this.removeMark = function(element)
+                {
+                    element = parseInt(element);
+                    
+                    if(element >= 0)
+                    {
+                        this.marks.splice(element,1);    
+                    }    
+                    else
+                    {
+                        throw "Invalid number Exception";
+                    }    
+                }
+            }
+            
+            function Parent(name, gender, address, telephoneNumber, years, childrens,work)
+            {
+                this.name = name;
+                this.gender = gender;
+                this.address = address;
+                this.telephoneNumber = telephoneNumber;
+                this.years = years;
+                
+                this.childrens = childrens;
+                this.work = work;
+                
+                this.printWork = function()
+                {
+                    document.write('Work : ' + this.work + '<br/>');
+                }
+                
+                this.printChildren = function()
+                {
+                    var sizeChildren = this.childrens.length;
+                    
+                    for(var i=0; i< sizeChildren; i++)
+                    {
+                        this.childrens[i].printInfoStudent();
+                    }    
+                }
+                
+                this.printInfoParent = function()
+                {
+                    document.write('Parent : <br/>');
+                    this.printInfo();
+                    this.printWork();
+                    
+                    document.write('My children : <br/>');
+                    this.printChildren();
+                }
+            }
+            
+            /*** Students ***/
+            var marksAlex = new Array(6, 6, 6);
+            var studentAlex = new Student('Alex', 'male', 'Varna', '12342342...', 10, 'Neofit Bozveli', 3, marksAlex);
+            studentAlex.addMark(5);
+            studentAlex.addMark(3);
+            studentAlex.addMark(6);
+            studentAlex.removeMark(0);
+            studentAlex.removeMark(3);
+            //studentAlex.removeMark('sasds'); throw "Invalid number Exception"; 
+            //studentAlex.removeMark(null); throw "Invalid number Exception";
+            
+            var marksDesi = new Array(5, 3, 3.5);
+            var studentDesi = new Student('Desi', 'female', 'Varna', '12343423...', 7, 'Neofit Bozveli', 1, marksDesi);
+            studentDesi.addMark(4);
+            studentDesi.addMark(5);
+            studentDesi.addMark(4.5);
+            studentDesi.removeMark(2);
+            
+            var marksPavel = new Array(6, 4, 5, 3);
+            var studentPavel = new Student('Pavel', 'male', 'Sofiq', '+359...', 8, 'Vasil Levski', 2, marksPavel);
+            studentPavel.addMark(6);
+            studentPavel.removeMark(studentPavel.marks.length-1);
+            
+            /*** Parents ***/
+            var childrenPeter = new Array(studentAlex, studentDesi);
+            var parentPeter = new Parent('Peter', 'male', 'Varna', '1234...', 37, childrenPeter, 'Software Engineer');
+            parentPeter.printInfoParent();
+            
+            var childrenVanq = new Array(studentPavel);
+            var parentVanq = new Parent('Vanq', 'female', 'Sofiq', '12345...', 42, childrenVanq, 'Project Manager');
+            document.write('<br/>');
+            parentVanq.printInfoParent();
+        </script>
+    </head>
+</html>
