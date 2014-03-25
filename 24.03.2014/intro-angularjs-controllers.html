@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app>
+<title>Angular - Controllers</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+<div ng-controller="Ctrl">
+  <input ng-model="name"/>
+  <h1>{{name}}</h1>
+  <h2>{{age}}</h2>
+</div>
+
+<div ng-controller="AnotherCtrl">
+  <input ng-model="name"/>
+  <h1>{{name}}</h1>
+  <h2>{{age}}</h2>
+</div>
+
+<script>
+var Ctrl = function($scope) {
+  $scope.name = "Dimitar Danailov";
+  $scope.age = 26;
+}
+
+var AnotherCtrl = function($scope) {
+  $scope.name = "Alexander Mihaylov";
+  $scope.age = 27;
+}
+</script>
+</html>

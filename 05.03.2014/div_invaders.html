@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Div Invaders</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            #arena {
+                width: 800px;
+                height: 600px;
+                margin: 0 auto;
+                border: 1px solid gray;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .player {
+                width: 100px;
+                height: 50px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                background: red;
+                -webkit-transition: all 0.2s;
+            }
+            
+            .bullet {
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                background: purple;
+                
+                left: -10px;
+                bottom: 0;
+                position: absolute;
+            }
+        </style>
+        <script src="jquery-2.1.0.js"></script>
+        <script src="div_invaders.js"></script>
+        <script>
+            $(function() {
+                $('#arena').divInvaders();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="arena"></div>
+    </body>
+</html>

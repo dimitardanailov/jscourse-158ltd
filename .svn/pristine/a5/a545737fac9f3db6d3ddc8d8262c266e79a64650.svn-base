@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            #content {
+                width: 500px;
+                height: 200px;
+                border: 1px solid gray;
+            }
+        </style>
+        <script src="jquery-2.1.0.js"></script>
+        <script>
+            $(window).load(function() {
+                var content = $('#content');
+                var button = $('#button');
+                
+                $(document).on('click', '.buttons button', function() {
+                    alert($(this).text() + ' clicked');
+                });
+                
+                button.on('click', function() {
+                    //content.html('Loading ...');
+                    
+                    $.get('content.html', function(res) {
+                        content.append(res);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            
+        </div>
+        <button id="button">Load</button>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Course - 05.03.2014</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            #object {
+                width: 0;
+                height: 100px;
+                background: red;
+            }
+        </style>
+        <script src="jquery-2.1.0.js"></script>
+        
+        <script>
+            function startAnim() {
+                $('#object').animate(
+                        {width: 100},
+                {
+                    step: function() {
+                        console.log(arguments)
+                    },
+                    duration: 500
+            });
+                
+            };
+        </script>
+    </head>
+    <body>
+        
+        <div id="object"></div>
+    </body>
+</html>

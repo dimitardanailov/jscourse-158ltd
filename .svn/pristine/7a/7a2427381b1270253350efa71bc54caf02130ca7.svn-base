@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>Angular.js controllers</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="MyController">
+  <input type="text" ng-model="name"/>
+  <h1>{{ name }} </h1>
+  <h2>{{ age }} </h2>
+</div>
+
+<div ng-controller="MySecondController">
+  <input type="text" ng-model="name"/>
+  <h1>{{ name }} </h1>
+  <h3>{{ age }} </h3>
+</div>
+
+<script>
+var MyController = function($scope) {
+  $scope.name = "Dimitar Danailov";
+  $scope.age = 25;
+}
+
+var MySecondController = function($scope) {
+  $scope.name = "Alexander";
+  $scope.age = 26;
+}
+</script>
+
+</body>
+</html>
