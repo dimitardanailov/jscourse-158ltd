@@ -11,6 +11,6 @@ Modules:
 
 Youtube videos: http://www.youtube.com/watch?v=HY9hcdSBick&list=PLDEH_aLlnP5pIou9tMNhJJMEusGOR9zzt&index=2
 
-If you want to ask question or watch  our presentations live, please join into New Coworking Space into Varna "Beehive".
+If you want to ask question or watch  our presentations live, please join into New Coworking Space "Beehive" Varna .
 
 For information about Beehive please check our facebook page: https://www.facebook.com/beehive.varna
