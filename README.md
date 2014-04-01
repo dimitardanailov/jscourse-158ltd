@@ -1,6 +1,6 @@
 <h2>Created By 158ltd.com</h2>
 
-158ltd.com is founder of JavaScript Course from 12.02.2014 - 12.05.2014.
+158ltd.com is founder of JavaScript Course. Duration: 12.02.2014 - 12.05.2014.
 
 Modules: 
 <ul>

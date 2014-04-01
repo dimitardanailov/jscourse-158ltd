@@ -2,9 +2,16 @@
 *.DS_Store
 
 #vim files
+*~
 *.*~
 
+*.swp
+*.swo
+*.un
+*.un~
+
 .gitignore
+.gitignore~
 
 # SVN files
 *.svn
