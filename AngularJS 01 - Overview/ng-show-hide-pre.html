@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app>
+<title>Angular - ng-show and ng-hide</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+<div>
+  <label>Name</label>
+  <input type="text" ng-model="name"/>
+</div>
+
+<div>
+  <input type="checkbox" ng-model="checkbox"/>
+  <label>Hide ?</label>
+</div>
+
+<div ng-hide="checkbox">
+  Hello, {{name || "world" }} 
+</div>
+
+</html>

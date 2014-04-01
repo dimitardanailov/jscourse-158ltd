@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>Angular.js - ng-change</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="Browser">
+  <div>
+    <h2>{{ path }}</h2>
+  </div>
+
+  <div>
+    <label>Update url: </label>
+    <input ng-change="clean()" ng-model="path" />
+  </div>
+</div>
+
+<script>
+  var Browser = function($scope) {
+    $scope.clean = function() {
+      $scope.path = $scope.path
+    }
+  }
+</script>
+</body>
+</html>

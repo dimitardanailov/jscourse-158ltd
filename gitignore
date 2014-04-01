@@ -1,0 +1,13 @@
+#OS junk files
+*.DS_Store
+
+#vim files
+*.*~
+
+.gitignore
+
+# SVN files
+*.svn
+
+# Netbean files
+nbproject/*

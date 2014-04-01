@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>Angular.js - ng-options</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="Contacts">
+  <div>
+    <input type="search" ng-model="search" />
+  </div>
+
+  <select ng-model="selected_person"
+          ng-options="person.name for person in people | filter:search">
+      <option value="">Choose a person:</option>
+  </select>
+
+  <hr/>
+  <div>
+    <label>Name: </label><input ng-model="selected_person.name" />
+    <br/>
+    <label>Number: </label><input ng-model="selected_person.number" />
+  </div>
+</div>
+
+<script>
+  var Contacts = function($scope) {
+    $scope.people = [
+    ];
+  }
+</script>
+</body>
+</html>
