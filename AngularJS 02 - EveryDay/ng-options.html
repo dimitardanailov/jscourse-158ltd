@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>Angular.js - ng-options</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="ContactList">
+  <div>
+    <input type="search" ng-model="search" />
+  </div>
+  <select 
+    ng-model="dropdown_contact_list"
+    ng-options="person.name for person in people | filter:search">
+    <option value="">Choose a person:</option>
+  </select>
+</div>
+<script>
+  var ContactList = function($scope) {
+    console.log($scope);
+
+    $scope.people = [
+      { name: "Dimitar", number: 1234 },
+      { name: "Alexander", number: 7890 },
+      { name: "Maria", number: 7812 },
+      { name: "Hristo", number: 9054 },
+    ];
+  };
+</script>
+</body>
+</html>

@@ -54,10 +54,13 @@
 
       console.log($scope.people);
       $scope.people.push(person);
+
+      $scope.name = "";
+      $scope.age = "";
     };
 
     $scope.removeperson = function(index) {
-      console.log(index);
+      $scope.people.splice(index, 1);
     };
   }
 </script>
