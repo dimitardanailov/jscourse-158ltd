@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<title>Angular.js - Modules Primer</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="Example">
+  <h1> {{ name }} </h1>
+</div>
+<script>
+  angular
+    .module("myApp", [])
+    .controller("Example", function($scope) {
+        $scope.name = "Dimitar";
+    });
+</script>
+</body>
+</html>
