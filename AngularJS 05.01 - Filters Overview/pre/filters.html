@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>Angular.js - Filters</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="Filter">
+  <ul>
+    <li> {{ price | currency:"$" }} </li>
+    <li> {{ amount | number:6 }} </li>
+    <li> {{ message | uppercase }} </li>
+    <li> {{ message | lowercase }} </li>
+    <li> {{ date | date: 'yyyy-MM-dd' }} </li>
+  </ul>
+
+  <ul>
+    <li ng-repeat="name in names | limitTo:2"> {{ name }} </li>
+  </ul>
+
+  <ul>
+    <li ng-repeat="person in people | orderBy:'firstname':true">
+      {{ person.firstname }}
+      {{ person.lastname }}
+    </li>
+  </ul>
+</div>
+<script>
+  var Filter = function($scope) {
+    $scope.price = 11.50;
+    $scope.amount = 10.123456789;
+    $scope.message = "Hello, world!";
+    $scope.date = new Date();
+
+    $scope.names = ["Dimitar", "Alexander", "Hristo", "Maria"];
+
+    $scope.people = [
+      { firstname: "Zoe", lastname: "Jones" },
+      { firstname: "Dimitar", lastname: "Danailov" },
+      { firstname: "Alexander", lastname: "Mihaylov" },
+      { firstname: "Hristo", lastname: "Pavlov" },
+      { firstname: "Maria", lastname: "Gradinarova" },
+    ];
+  };
+</script>
+</body>
+</html>
