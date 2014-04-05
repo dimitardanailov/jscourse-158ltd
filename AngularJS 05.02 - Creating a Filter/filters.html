@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="myFilterApp">
+<head>
+<title>Angular.js - Creating a Filter</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="MyFilter">
+  {{ text | clean:"+" }}
+</div>
+<script>
+  angular
+    .module("myFilterApp", [])
+    .filter("clean", function() {
+        return function(input, seperator) {
+          seperator = seperator || '-';
+          var filter = new RegExp('[^a-z0-9' + seperator + ']', 'ig');
+
+          input = input.toLowerCase();
+          input = input.replace(filter, ' ');
+          input = input.trim();
+          input = input.replace(/\s+/ig, seperator);
+          
+          return input;
+        };
+    })
+
+    .controller("MyFilter", function($scope) {
+        $scope.text = "   Hello world. Simple text example !!!";
+    });
+</script>
+</body>
+</html>
