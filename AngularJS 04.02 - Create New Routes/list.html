@@ -1,0 +1,16 @@
+<h2> List </h2>
+
+<div>
+  <label for="search"> Search: </label>
+  <input type="search" ng-model="search" />
+</div>
+
+<ul>
+  <li ng-repeat="contact in contacts | filter:search" >
+    <a href="#/contact/{{$index}}">
+      {{ contact.name }}
+    </a>
+  </li>
+</ul>
+
+<a href="#/add">Add a contact</a>

@@ -1,0 +1,19 @@
+<h2>{{ title }}</h2>
+
+<a href="#/delete/{{index}}">
+  Delete
+</a>
+
+<ul>
+  <li>
+    <label for="name">Name: </label>
+    <input type="text" id="name" ng-model="contact.name" />
+  </li>
+
+  <li>
+    <label for="number">Number:</label>
+    <input type="text" id="number" ng-model="contact.number" />
+  </li>
+</ul>
+
+<a href="#/">Back to list</a>
