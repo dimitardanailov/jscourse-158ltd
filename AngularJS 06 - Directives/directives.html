@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="directives">
+<head>
+<title>Angular.js - Directives</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-controller="MyController">
+  {{ message }} 
+  <button ng-click="showMessage()">Show Message</button>
+
+  <br/>
+
+  <button click="customShowMessageEvent()">Custom Directive</button>
+
+  <br/>
+
+  <my:clicker on-click="myHandler()">{{ button_text }} </my:clicker>
+</div>
+
+<script>
+  angular
+    .module("directives", [])
+    .directive('click', function() { 
+        return {
+          restrict: 'A',
+          link: function(scope, element, attrs) {
+            console.log(attrs);
+
+            element.bind('click', function() {
+              scope.$eval(attrs.click);
+            });
+          }
+        };
+    })
+    .directive('myClicker', function() { 
+        return {
+          restrict: 'E',
+          replace: true,
+          transclude: true,
+          template: '<button ng-transclude></button>',
+          link: function(scope, element, attrs) {
+            console.log(attrs);
+
+            element.bind('click', function() {
+              scope.$eval(attrs.onClick);
+            });
+          }
+        };
+    })
+    .controller("MyController", function($scope) {
+        $scope.text = "Hello";
+        $scope.button_text = "Button Hello Message";
+
+        $scope.showMessage = function() {
+          alert($scope.text);
+        };
+
+        $scope.customShowMessageEvent = function() {
+          alert($scope.text);
+        };
+
+        $scope.myHandler = function() {
+          alert($scope.text)
+        };
+    });
+</script>
+</body>
+</html>
