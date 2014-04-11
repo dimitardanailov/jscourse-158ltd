@@ -1,0 +1,19 @@
+{
+  "name": "angular-resource-example",
+  "version": "0.0.1",
+  "description": "158ltd.com - learn AngularJS",
+  "main": "server/server.js",
+  "author": "Dimitar Daanailov",
+  "license": "MIT",
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "latest",
+    "connect": "latest",
+    "compression": "latest",
+    "cookie-session": "latest",
+    "body-parser": "latest"
+  },
+  "engines": {
+    "node": "0.10.26"
+  }
+}
