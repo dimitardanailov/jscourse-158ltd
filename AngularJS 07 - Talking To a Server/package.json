@@ -11,7 +11,8 @@
     "connect": "latest",
     "compression": "latest",
     "cookie-session": "latest",
-    "body-parser": "latest"
+    "body-parser": "latest",
+    "errorhandler": "latest"
   },
   "engines": {
     "node": "0.10.26"

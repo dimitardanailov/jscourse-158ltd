@@ -33,3 +33,7 @@ Resources :
 8. Body Parser - https://www.npmjs.org/package/body-parser
 
 9. MVC - http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+
+10. REST API - http://en.wikipedia.org/wiki/Representational_state_transfer
+
+11. NoSQL vs SQL - https://www.youtube.com/watch?v=rRoy6I4gKWU&list=PLH2J_JZ4HZUtY4gIT8efZ8SI-xJdfwf8X

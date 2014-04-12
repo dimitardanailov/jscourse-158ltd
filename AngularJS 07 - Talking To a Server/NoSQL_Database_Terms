@@ -1,0 +1,4 @@
+1. NoSQL Database == RDBMS Database
+2. NoSQL Collection == RDBMS Table
+3. NoSQL Document == RDBMS Record or Row
+4. NoSQL Field == RDBMS Column. Example for field - { key: value }
