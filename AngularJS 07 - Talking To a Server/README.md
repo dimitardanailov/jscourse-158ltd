@@ -4,7 +4,7 @@ Resources :
 
 2. MongoDB - http://docs.mongodb.org/
 
-  2.1 /data/db folder must be created. After that chown <current user> /data/db
+  2.1 /data/db folder must be created. After that chown [current user] /data/db
 
   2.1 BSON - http://docs.mongodb.org/manual/reference/glossary/#term-bson
 
