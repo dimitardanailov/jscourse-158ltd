@@ -12,7 +12,7 @@ Resources :
 
   3.1 http://expressjs.com/guide.html
 
-4. npm
+4. npm - https://www.npmjs.org/
 
   4.1 - package.json
 
@@ -27,3 +27,9 @@ Resources :
     - http://www.senchalabs.org/connect/
     
     - https://github.com/senchalabs/connect#middleware.
+
+7. Compression - https://www.npmjs.org/package/compression
+
+8. Body Parser - https://www.npmjs.org/package/body-parser
+
+9. MVC - http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
