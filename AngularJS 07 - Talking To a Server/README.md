@@ -24,9 +24,9 @@ Resources :
 
   6.1 Connect 
   
-    - http://www.senchalabs.org/connect/
+    6.1.1 http://www.senchalabs.org/connect/
     
-    - https://github.com/senchalabs/connect#middleware.
+    6.1.2 https://github.com/senchalabs/connect#middleware.
 
 7. Compression - https://www.npmjs.org/package/compression
 
