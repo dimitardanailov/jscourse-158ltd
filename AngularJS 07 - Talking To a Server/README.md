@@ -20,7 +20,7 @@ Resources :
 
 5. Jade - http://jade-lang.com/
 
-6. Middleware framework 
+6. Middleware framework. Wiki Middleware - http://en.wikipedia.org/wiki/Middleware
 
   6.1 Connect 
   
