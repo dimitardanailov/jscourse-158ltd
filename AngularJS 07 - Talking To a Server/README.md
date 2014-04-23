@@ -37,3 +37,7 @@ Resources :
 10. REST API - http://en.wikipedia.org/wiki/Representational_state_transfer
 
 11. NoSQL vs SQL - https://www.youtube.com/watch?v=rRoy6I4gKWU&list=PLH2J_JZ4HZUtY4gIT8efZ8SI-xJdfwf8X
+
+12. Build a RESTful API Using Node and Express 4 - http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
+
+13. Create, read, update and delete - http://en.wikipedia.org/wiki/Create,_read,_update_and_delete

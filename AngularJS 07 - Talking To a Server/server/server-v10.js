@@ -108,6 +108,47 @@ app
         if( !contacts ) return res.send(404, new Error("Contacts not found."));
         res.send(contacts);
       });
+  })
+
+  // Create a contact
+  .post('/api/contact', function (req, res, next) {
+    var contact = new Contact(req.body);
+    contact.save(function (err, contact) {
+      if( err ) return res.send(500, err);
+      res.send(contact);
+    });
+  })
+
+  // Get a single contact
+  .get('/api/contact/:name', function (req, res, next) {
+    Contact
+      .findOne({ 'name.clean': req.params.name  }, { _id: 0 })
+      .exec(function (err, contact) {
+        // console.log(req.params);
+        if( err ) return res.send(500, err);
+        if( !contact ) return res.send(404, new Error("Contact not found."));
+        res.send(contact);
+      });
+  })
+
+  // Update a contact
+  .post('/api/contact/:name', function (req, res, next) {
+    Contact
+      .findOne({ 'name.clean': req.params.name })
+      .exec(function (err, contact) {
+        if( err ) return res.send(500, err);
+        if( !contact ) return res.send(404, new Error("Contact not found."));
+
+        contact.name.first = req.body.name.first;
+        contact.name.last = req.body.name.last;
+        contact.email = req.body.email;
+        contact.number = req.body.number;
+        contact.notes = req.body.notes;
+        contact.save(function (err, contact) {
+          if( err ) return res.send(500, err);
+          res.send(contact);
+        });
+      });
   });
 // ========================
 // API
