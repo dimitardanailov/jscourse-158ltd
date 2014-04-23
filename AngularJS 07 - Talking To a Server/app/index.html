@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="ngResourceExample">
+  <head>
+    <title>AngularJS ngResource</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.15/angular-resource.js"></script>
+  </head>
+
+  <body>
+    <a href="https://docs.angularjs.org/api/ngResource"
+       title="Documentation" target="_blank">
+       ngResource Documentation
+    </a>
+    <h1>
+      Listing a contacts
+    </h1>
+
+    <div ng-controller="listOfContacts">
+      <ul>
+        <li ng-repeat="contact in contacts">
+          <div>
+            Name: 
+            {{ contact.name.first }} - 
+            {{ contact.name.last }}
+          </div>
+          <div>
+            Created at :
+            {{ contact.added }}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      angular
+        .module("ngResourceExample", ['ngResource'])
+        .controller("listOfContacts", function($scope, $resource) {
+            var Contact = $resource('/api/contacts');
+            var contacts = Contact.query();
+            console.log(contacts);
+            $scope.contacts = contacts;
+        });
+    </script>
+  </body>
+</html>
