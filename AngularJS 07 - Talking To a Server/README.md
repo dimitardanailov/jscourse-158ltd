@@ -41,3 +41,7 @@ Resources :
 12. Build a RESTful API Using Node and Express 4 - http://scotch.io/tutorials/javascript/build-a-restful-api-using-node-and-express-4
 
 13. Create, read, update and delete - http://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+
+14. Pretty URLs in AngularJS: Removing the # - http://scotch.io/quick-tips/js/angular/pretty-urls-in-angularjs-removing-the-hashtag
+
+15. How do I “think in AngularJS” if I have a jQuery background? - http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background

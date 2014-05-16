@@ -3,7 +3,14 @@
   <head>
     <title>AngularJS ngResource</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+    <!-- Resource Lib -->
     <script src="https://code.angularjs.org/1.2.15/angular-resource.js"></script>
+
+    <!-- Route Lib -->
+    <script src="http://code.angularjs.org/1.2.15/angular-route.min.js"></script>
+
+    <base href="/">
   </head>
 
   <body>
@@ -11,35 +18,132 @@
        title="Documentation" target="_blank">
        ngResource Documentation
     </a>
-    <h1>
-      Listing a contacts
-    </h1>
 
     <div ng-controller="listOfContacts">
-      <ul>
-        <li ng-repeat="contact in contacts">
-          <div>
-            Name: 
-            {{ contact.name.first }} - 
-            {{ contact.name.last }}
-          </div>
-          <div>
-            Created at :
-            {{ contact.added }}
-          </div>
-        </li>
-      </ul>
+      <div ng-view> </div>
     </div>
 
     <script>
       angular
-        .module("ngResourceExample", ['ngResource'])
-        .controller("listOfContacts", function($scope, $resource) {
+        .module("ngResourceExample", ['ngResource', 'ngRoute'])
+
+        // Angularjs Routes
+        //
+        // $routeProvider - Used for configuring routes.
+        // 
+        // $locationProvider - Use the $locationProvider to configure how the 
+        // application deep linking paths are stored.
+        .config(function ($routeProvider, $locationProvider) {
+            console.log('Route Provider');
+
+            // Configure the routes
+            $routeProvider
+
+              .when('/add', {
+                controller: 'addContact',
+                templateUrl: 'add.html'
+              })
+
+              // Single contact name
+              .when('/contact/:name', {
+                controller: 'singleContact',
+                templateUrl: 'single.html'
+              })
+
+              // List all contacts
+              .when('/', {
+                controller: 'listOfContacts',
+                templateUrl: 'list.html'
+              });
+
+            // use the HTML5 History API
+            $locationProvider.html5Mode(true);
+        })
+        // End .config
+
+        // FACTORIES
+        // Setup a 'Contact' service that can be requested by any other part of 
+        // the module, and then injected by Angular
+        .factory('Contact', function($resource) {
+            alert('Contact Factory');
+            var contact = $resource('/api/Contact/:name', { name: '@name.clean' });
+
+            return contact;
+        })
+        .factory('Example', function($resource) {
+            return "Hello World";
+        })
+        // FACTORIES
+
+        // CONTROLLERS
+        .controller("listOfContacts", function($scope, $resource, Example) {
             var Contact = $resource('/api/contacts');
             var contacts = Contact.query();
+            
             console.log(contacts);
+            console.log(Example);
+
             $scope.contacts = contacts;
-        });
+        }) // End listOfContacts
+
+        /**
+         * $resource - A factory which creates a resource object that lets you 
+         * interact with RESTful server-side data sources.
+         *
+         * $routeParams - The $routeParams service allows you to retrieve the current set of route parameters.
+         *
+         * Contact - Custom Factory/Service
+         * 
+         * $timeout - Angular's wrapper for window.setTimeout.
+         * The fn function is wrapped into a try/catch block and delegates 
+         * any exceptions to $exceptionHandler service.
+         *
+         * $location - The $location service parses the URL in the browser 
+         * address bar (based on the window.location) and makes the URL available to your application.
+         */
+        .controller("singleContact", function($scope, $resource, $routeParams, Contact, $timeout, $location) {
+
+            console.log(Contact);
+            
+            // Grab just a single contact
+            $scope.contact = Contact.get({ name: $routeParams.name });
+
+            // Update exist database contact
+            var saveTimeout;
+            // Throttle the save POST request
+            $scope.save = function() {
+              $timeout.cancel(saveTimeout);
+
+              saveTimeout = $timeout(function () {
+                // Save the contact and then update the scope & URL with what came
+                // back from the server
+                $scope.contact.$save(function (updated_contact) {
+                  console.log('Updated contact');
+                  console.log(updated_contact);
+
+                  $scope.contact = updated_contact;
+
+                  // Update Existing Location
+                  $location.path('/contact/' + updated_contact.name.clean).replace();
+                });
+                
+              }, 1000);
+            };
+        }) // End singleContact
+
+        .controller("addContact", function($scope, $resource, Contact, $location) {
+            // Create a empty contact object
+            $scope.contact = new Contact({});
+
+            // Save and redirect to home page
+            $scope.save = function() {
+              $scope.contact.$save(function() {
+                $location.path('/');
+              });
+            };
+        }); // END addContact
+        // End controller
+        // CONTROLLERS
     </script>
   </body>
 </html>

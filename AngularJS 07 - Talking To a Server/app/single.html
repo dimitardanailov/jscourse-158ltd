@@ -1,0 +1,42 @@
+<p>
+  <a href="/">Back</a>
+</p>
+<h2>
+  Edditing {{ contact.name.first }} {{ contact.name.last }}
+</h2>
+
+<p>
+  <label>
+    Name: 
+  </label>
+  <br/>
+  <input type="text" ng-model="contact.name.first" ng-change="save()" />
+</p>
+
+<p>
+  <label>
+    Last Name: 
+  </label>
+  <br/>
+  <input type="text" ng-model="contact.name.last" ng-change="save()"/>
+</p>
+
+<p>
+  <label>
+    Email:
+  </label>
+  <br/>
+  <input type="email" ng-model="contact.email" ng-change="save()" />
+</p>
+
+<p>
+  <label>
+    Number :
+  </label>
+  <br/>
+  <input type="text" ng-model="contact.number" ng-change="save()" />
+</p>
+
+<h4> Notes </h4>
+
+<textarea ng-model="contact.notes" ng-change="save()" />

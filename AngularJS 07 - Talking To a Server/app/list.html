@@ -1,0 +1,31 @@
+<div ng-controller="listOfContacts">
+  
+  <p>
+    <a href="/add">
+      Add a new contact
+    </a>
+  </p>
+
+  <h1>
+    Listing a contacts
+  </h1>
+  <ul>
+    <li ng-repeat="contact in contacts">
+      <div>
+        Name: 
+        {{ contact.name.first }} - 
+        {{ contact.name.last }}
+      </div>
+      <div>
+        Created at :
+        {{ contact.added }}
+      </div>
+
+      <p>
+        <a href="/contact/{{ contact.name.clean }}">
+          Edit
+        </a>
+      </p>
+    </li>
+  </ul>
+</div>

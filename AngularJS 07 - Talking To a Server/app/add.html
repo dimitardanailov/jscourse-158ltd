@@ -1,0 +1,47 @@
+<p>
+  <a href="/">Back</a>
+</p>
+
+<h2>
+  Add a new contact
+</h2>
+
+<p>
+  <label>
+    Name: 
+  </label>
+  <br/>
+  <input type="text" ng-model="contact.name.first"/>
+</p>
+
+<p>
+  <label>
+    Last Name: 
+  </label>
+  <br/>
+  <input type="text" ng-model="contact.name.last" />
+</p>
+
+<p>
+  <label>
+    Email:
+  </label>
+  <br/>
+  <input type="email" ng-model="contact.email"/>
+</p>
+
+<p>
+  <label>
+    Number :
+  </label>
+  <br/>
+  <input type="text" ng-model="contact.number"/>
+</p>
+
+<h4> Notes </h4>
+
+<textarea ng-model="contact.notes"></textarea>
+
+<p>
+  <button ng-click="save()">Save!</button>
+</p>

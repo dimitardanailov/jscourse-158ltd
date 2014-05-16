@@ -3,7 +3,8 @@ var path = require('path')
     , http = require('http')
     , connect = require('connect')
     , mongooselib = require('mongoose')
-    , express = require('express');
+    , express = require('express')
+    , bodyParser = require('body-parser');
 
 // ========================
 // Database
@@ -11,17 +12,15 @@ var path = require('path')
 var database_name = 'angular-resources';
 var mongoose = mongooselib
         .connect("mongodb://localhost:27017/" + database_name );
-    db = mongoose.connection;
+var db = mongoose.connection;
 
-mongoose
-  .set('debug', true);
+mongoose.set('debug', true);
 
 // Database Logs info
-var database_success_message = 
-  "We have connected to - " + database_name;
-db
-  .on('error', console.error.bind(console, 'Connection Error.'))
-  .once('open', console.log.bind(console, database_success_message));
+var database_success_message = "We have connected to - " + database_name;
+
+db.on('error', console.error.bind(console, 'Connection Error.'));
+db.once('open', console.log.bind(console, database_success_message));
 // ========================
 // Database
 // ========================
@@ -80,20 +79,30 @@ var connect_setup =
     });
 */
 
-app = 
-  express()
-    .set('port', process.env.PORT || 9000)
-    // The route base is ../app
-    .set('views', path.resolve(__dirname, '../app'))
-    // Render html by just spitting the file out
-    .set('view engine', 'html')
-    .engine('html', function (path, options, fn) {
-      if ('function' == typeof options) {
-        fn = options, options = {};
-      }
-      fs.readFile(path, 'utf8', fn);
-    })
+// ========================
+// // Server
+// // ========================
+//
+// Setup the server
+var app = express();
+app.set('port', process.env.PORT || 9000);
 
+// The route base is ../app
+app.set('views', path.resolve(__dirname, '../app'));
+
+// Render html by just spitting the file out
+app.set('view engine', 'html')
+app.engine('html', function (path, options, fn) {
+  if ('function' == typeof options) {
+    fn = options, options = {};
+  }
+  fs.readFile(path, 'utf8', fn);
+});
+
+app.use(bodyParser());
+
+// Serve the app folder statically
+app.use(express.static(path.resolve(__dirname, '../app')));
 // ========================
 // API
 // ========================
