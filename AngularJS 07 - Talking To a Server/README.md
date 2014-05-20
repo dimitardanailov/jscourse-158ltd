@@ -2,7 +2,7 @@
 
 <a href="http://angular-nodejs-example.herokuapp.com/" target="_blank" title="Nodejs, Mongodb, Express 4, Angularjs Demo">Nodejs, Mongodb, Express 4, Angularjs Demo</a>
 
-<h4>Resources</h4> : 
+<h4>Resources : </h4> 
 
 1. Node Version Manager - https://github.com/creationix/nvm
 
